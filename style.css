@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #f9d8ff 0%, #fce4ff 30%, #2b133b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #2b133b;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corazones animados del fondo */
+.hearts-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #ff4b9f;
+  transform: rotate(-45deg);
+  top: 110%;
+  left: 10%;
+  opacity: 0.8;
+  animation: floatUp 10s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: #ff4b9f;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -40px;
+  left: 0;
+}
+
+.heart::after {
+  left: 40px;
+  top: 0;
+}
+
+/* Variantes para otros corazones */
+.heart:nth-child(2) {
+  left: 70%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 14s;
+  animation-delay: -5s;
+  background: #b35dff;
+}
+.heart:nth-child(2)::before,
+.heart:nth-child(2)::after {
+  width: 60px;
+  height: 60px;
+  background: #b35dff;
+}
+
+.heart:nth-child(3) {
+  left: 40%;
+  width: 100px;
+  height: 100px;
+  animation-duration: 18s;
+  animation-delay: -2s;
+  background: #ff85c2;
+}
+.heart:nth-child(3)::before,
+.heart:nth-child(3)::after {
+  width: 100px;
+  height: 100px;
+  background: #ff85c2;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(-45deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-130vh) rotate(-45deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Tarjeta principal */
+.card {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 24px 20px 28px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(220, 165, 255, 0.9);
+}
+/* Gatito al inicio */
+.cat-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.cat-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(220, 165, 255, 0.6);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.title {
+  font-family: "Pinyon Script", cursive;
+  font-size: 2.4rem;
+  color: #7b1fa2;
+  margin-bottom: 8px;
+}
+
+.message {
+  font-size: 0.95rem;
+  color: #4a148c;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.question {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #d81b60;
+  margin-bottom: 20px;
+}
+
+.question span {
+  font-family: "Pinyon Script", cursive;
+  font-size: 1.8rem;
+  color: #8e24aa;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+  font-weight: 600;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff4081, #e040fb);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(224, 64, 251, 0.45);
+}
+
+#yesBtn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 26px rgba(224, 64, 251, 0.6);
+}
+
+#noBtn {
+  background: #f3e5f5;
+  color: #6a1b9a;
+  box-shadow: 0 4px 12px rgba(74, 20, 140, 0.15);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+#noBtn:hover {
+  background: #e1bee7;
+}
+
+/* Sección de respuesta con gatitos */
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cats-love-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.love-text {
+  font-family: "Comfortaa", cursive;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #7b1fa2;
+  margin: 8px 0;
+  animation: fadeIn 0.8s ease-in;
+  letter-spacing: 0.3px;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Botón corazón para volver */
+.heart-btn {
+  background: linear-gradient(135deg, #ff4081, #e040fb);
+  color: #fff;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(224, 64, 251, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(224, 64, 251, 0.6);
+}
+
+.heart-btn:active {
+  transform: scale(0.95);
+}
+
+.heart-icon {
+  font-size: 1.8rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40% {
+    transform: scale(1.1);
+  }
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px 16px 24px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .message {
+    font-size: 0.9rem;
+  }
+
+  .question {
+    font-size: 1.1rem;
+  }
+
+  .question span {
+    font-size: 1.6rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+/* Video de fondo */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  mix-blend-mode: screen /* Quita el fondo negro */
+}
+
+.bg-video.show {
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Ajustar z-index de la tarjeta para que esté sobre el video */
+.card {
+  position: relative;
+  z-index: 10;
+}
+
