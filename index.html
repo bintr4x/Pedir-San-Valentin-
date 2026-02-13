@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Quieres ser mi San Valentín?</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Poppins:wght@300;500;700&family=Quicksand:wght@500;700&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- VIDEO DE FONDO (oculto al inicio) -->
+  <video id="bgVideo" class="bg-video hidden" autoplay loop muted playsinline>
+    <source src="recursos/heart.webm" type="video/webm">
+  </video>
+
+  <div class="hearts-background">
+    <div class="heart"></div>
+    <div class="heart"></div>
+    <div class="heart"></div>
+  </div>
+
+  <main class="card">
+    <!-- GATITO AL INICIO 🐱💜 -->
+    <div class="cat-container" id="catContainer">
+      <img src="recursos/cat-heart.gif" alt="Gatito con corazón" class="cat-img">
+    </div>
+
+    <h1 class="title" id="titleText">Hola Juliana, mi niña hermosa 💜</h1>
+    <p class="message" id="messageText">
+      Desde que te conocí, mis días son más bonitos y mi corazón un poquito más tuyo.
+    </p>
+    <p class="question">
+      ¿Quieres ser mi <span>San Valentín</span>?
+    </p>
+
+    <div class="buttons">
+      <button id="yesBtn">Sí, quiero 💖</button>
+      <button id="noBtn">No 😳</button>
+    </div>
+
+    <!-- RESPUESTA CON GATITOS ABRAZÁNDOSE -->
+    <div id="answerSection" class="answer-section hidden">
+      <img src="recursos/idc.gif" alt="Gatitos abrazándose" class="cats-love-img">
+      <p class="love-text">Te quiero mucho mi niña preciosa de mi corazón Prepárate, porque este San Valentín va a ser inolvidable.💜</p>
+      
+      <!-- BOTÓN CORAZÓN PARA VOLVER -->
+      <button id="backBtn" class="heart-btn" title="Volver">
+        <span class="heart-icon">❤️</span>
+      </button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
